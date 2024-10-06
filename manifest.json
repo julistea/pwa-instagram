@@ -1,0 +1,12 @@
+{
+  "short_name": "Picnshare",
+  "name": "Pic'nShare",
+  "description": "Platform for take and share photos",
+  "icons": [],
+  "start_url": "/",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#cddc39"
+}

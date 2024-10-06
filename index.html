@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,400,0,0"
+    />
+    <title>Pic'nShare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style></style>
+  </head>
+  <body class="work-sans-general-font">
+    <section class="container mx-auto p-8 flex flex-col items-center">
+      <header class="mb-8">
+        <h1 class="hidden">Pic'nShare</h1>
+        <figure>
+          <picture>
+            <source srcset="./images/logos/logo-main.webp" type="image/webp" />
+            <img
+              src="./images/logos/logo-main.png"
+              alt="Pic'nShare logo"
+              class="mx-auto w-32 md:w-48"
+            />
+          </picture>
+        </figure>
+      </header>
+      <main class="mb-8">
+        <!-- Las imágenes se cargarán aquí dinámicamente -->
+        <div id="reel-container" class="flex flex-col">
+          <article
+            id="reel-item"
+            class="w-96 p-4 border border-slate-300 shadow-md"
+          >
+            <figure class="mb-2">
+              <figcaption class="mb-2">Start pic'nsharing!</figcaption>
+              <picture>
+                <source
+                  srcset="./images/placeholders/sm-1.webp"
+                  type="image/webp"
+                />
+
+                <img
+                  src="./images/placeholders/fallback-1.jpg"
+                  alt="Placeholder photo"
+                />
+              </picture>
+            </figure>
+            <p><span class="text-gray-500 font-bold">Just now</span></p>
+          </article>
+        </div>
+      </main>
+      <footer>
+        <a href="./camara.html" class="flex justify-center">
+          <div
+            class="flex justify-center items-center w-14 h-14 bg-lime-400 rounded-full shadow-md hover:bg-lime-500 transition-all"
+          >
+            <span
+              class="material-symbols-rounded text-4xl text-slate-50 transition-all"
+            >
+              add_a_photo
+            </span>
+          </div>
+        </a>
+      </footer>
+    </section>
+
+    <script type="text/javascript" src="./js/index.js"></script>
+  </body>
+</html>
