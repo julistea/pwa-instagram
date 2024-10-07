@@ -91,11 +91,12 @@ function init() {
     const mobileDiv = document.getElementById("user-action-mobile");
     mobileDiv.classList.remove("hidden");
 
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        aspectRatio: 3 / 4, // aspect ratios may not be exactly accurate
-      },
-    });
+    const constraints = { video: { width: 600, height: 800 } };
+
+    navigator.mediaDevices
+      .getUserMedia(constraints)
+      .then((stream) => (video.srcObject = stream))
+      .then(() => new Promise((resolve) => (video.onloadedmetadata = resolve)));
 
     btnOpenCamera.addEventListener("click", () => {
       inputImage.click();
