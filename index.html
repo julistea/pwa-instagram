@@ -43,8 +43,10 @@
             class="w-72 md:w-96 p-4 border border-slate-300 shadow-md"
           >
             <figure class="mb-2">
-              <figcaption class="mb-2">Start pic'nsharing!</figcaption>
-              <picture>
+              <figcaption class="mb-2 text-slate-700">
+                Start pic'nsharing!
+              </figcaption>
+              <picture class="image-wrapper">
                 <source
                   srcset="./images/placeholders/sm-1.webp"
                   type="image/webp"
@@ -53,17 +55,18 @@
                 <img
                   src="./images/placeholders/fallback-1.jpg"
                   alt="Placeholder photo"
+                  class="image-preview"
                 />
               </picture>
             </figure>
-            <p><span class="text-gray-500 font-bold">Just now</span></p>
+            <p><span class="text-slate-500 font-light">Just now</span></p>
           </article>
         </div>
       </main>
       <footer class="w-full fixed bottom-4 flex justify-center">
         <a href="./camara.html" class="flex justify-center">
           <div
-            class="flex justify-center items-center w-14 h-14 bg-lime-400 rounded-full shadow-md hover:bg-lime-500 transition-all"
+            class="flex justify-center items-center w-14 h-14 bg-slate-400 rounded-full shadow-lg hover:bg-slate-500 transition-all"
           >
             <span
               class="material-symbols-rounded text-4xl text-slate-50 transition-all"

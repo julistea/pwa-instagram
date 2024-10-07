@@ -4,6 +4,7 @@ const btnOpenCamera = document.getElementById("btn-open-camera");
 const btnUploadFile = document.getElementById("btn-upload-file");
 const previewImg = document.getElementById("preview-image");
 const inputImage = document.getElementById("input-image");
+let originalSource = null;
 
 const reader = new FileReader();
 
@@ -16,9 +17,18 @@ function getIsCaptureSupported() {
 function getBase64Image() {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
-  canvas.width = previewImg.width;
-  canvas.height = previewImg.height;
-  ctx.drawImage(previewImg, 0, 0);
+
+  const publishImg = document.createElement("img");
+  publishImg.src = originalSource;
+  const fullWidth = publishImg.width;
+  const fullHeight = publishImg.height;
+
+  publishImg.width = 600;
+  publishImg.height = (600 * fullHeight) / fullWidth;
+  canvas.width = publishImg.width;
+  canvas.height = publishImg.height;
+
+  ctx.drawImage(publishImg, 0, 0);
 
   return canvas.toDataURL("image/webp");
 }
@@ -27,7 +37,8 @@ function handleOnChangeInputImage(event) {
   const file = event.target.files[0];
 
   reader.onload = (e) => {
-    previewImg.src = e.target.result;
+    originalSource = e.target.result;
+    previewImg.src = originalSource;
     cameraContainer.classList.add("hidden");
     previewImageContainer.classList.remove("hidden");
   };
@@ -42,6 +53,7 @@ function handleOnClickPublish() {
 }
 
 function handleOnClickRetake() {
+  originalSource = null;
   previewImg.src = "";
   previewImageContainer.classList.add("hidden");
   cameraContainer.classList.remove("hidden");

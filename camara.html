@@ -39,7 +39,7 @@
         <!-- Input -->
         <div id="camera-container" class="flex flex-col items-center">
           <div
-            class="w-72 h-[384px] md:w-96 md:h-[512px] mx-4 border border-slate-300 flex flex-col items-center justify-center"
+            class="w-72 h-[384px] md:w-96 md:h-[512px] mx-4 mb-4 border border-slate-300 flex flex-col items-center justify-center"
           >
             <div
               id="user-action-mobile"
@@ -74,6 +74,15 @@
               <p class="text-slate-500">Subí una foto</p>
             </div>
           </div>
+          <div class="w-full flex justify-start px-4">
+            <a
+              id="btn-back-to-reel"
+              class="bg-slate-50 hover:bg-slate-200 text-slate-700 p-2 border border-slate-800 shadow-md"
+              href="./index.html"
+            >
+              Volver
+            </a>
+          </div>
           <div class="hidden">
             <label for="input-image" class="mb-4">Camera live</label>
             <input
@@ -86,10 +95,10 @@
           </div>
         </div>
         <!-- Preview -->
-        <div id="preview-container" class="hidden">
+        <div id="preview-container" class="hidden image-wrapper">
           <img
             id="preview-image"
-            class="w-72 h-[384px] md:w-96 md:h-[512px] mx-4 mb-4"
+            class="image-preview w-72 h-[384px] md:w-96 md:h-[512px] mx-4 mb-4"
             alt="your photo"
           />
 
