@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,21 +36,81 @@
         </figure>
       </header>
       <main class="mb-8">
-        <!-- Cámara -->
+        <!-- Input -->
         <div id="camera-container" class="flex flex-col items-center">
-          <label for="camera-live" class="mb-4">Camera live</label>
-          <input
-            type="file"
-            accept="image/*"
-            capture="environment"
-            name="camera-live"
-            id="camera-live"
-          />
+          <div
+            class="w-72 h-[384px] md:w-96 md:h-[512px] mx-4 border border-slate-300 flex flex-col items-center justify-center"
+          >
+            <div
+              id="user-action-mobile"
+              class="flex flex-col justify-center items-center hidden"
+            >
+              <div
+                id="btn-open-camera"
+                class="cursor-pointer mb-2 flex justify-center items-center w-14 h-14 bg-slate-400 rounded-full shadow-md hover:bg-slate-500 transition-all"
+              >
+                <span
+                  class="material-symbols-rounded text-4xl text-slate-50 transition-all"
+                >
+                  camera
+                </span>
+              </div>
+              <p class="text-slate-500">Tomá una foto</p>
+            </div>
+            <div
+              id="user-action-desktop"
+              class="flex flex-col justify-center items-center hidden"
+            >
+              <div
+                id="btn-upload-file"
+                class="cursor-pointer mb-2 flex justify-center items-center w-14 h-14 bg-slate-400 rounded-full shadow-md hover:bg-slate-500 transition-all"
+              >
+                <span
+                  class="material-symbols-rounded text-4xl text-slate-50 transition-all"
+                >
+                  upload_file
+                </span>
+              </div>
+              <p class="text-slate-500">Subí una foto</p>
+            </div>
+          </div>
+          <div class="hidden">
+            <label for="input-image" class="mb-4">Camera live</label>
+            <input
+              type="file"
+              accept="image/*"
+              capture="environment"
+              name="input-image"
+              id="input-image"
+            />
+          </div>
         </div>
         <!-- Preview -->
-        <div id="preview-container" class="hidden"></div>
+        <div id="preview-container" class="hidden">
+          <img
+            id="preview-image"
+            class="w-72 h-[384px] md:w-96 md:h-[512px] mx-4 mb-4"
+            alt="your photo"
+          />
+
+          <div class="flex justify-between px-4">
+            <button
+              id="btn-retake"
+              type="reset"
+              class="bg-slate-50 hover:bg-slate-200 text-slate-700 p-2 border border-slate-800 shadow-md"
+            >
+              Cancelar
+            </button>
+            <button
+              id="btn-publish"
+              type="submit"
+              class="bg-slate-400 hover:bg-slate-500 text-slate-50 p-2 border border-slate-800 shadow-md"
+            >
+              Publicar
+            </button>
+          </div>
+        </div>
       </main>
-      <footer></footer>
     </section>
 
     <script type="text/javascript" src="./js/camara.js"></script>
