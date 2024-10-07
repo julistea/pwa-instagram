@@ -12,8 +12,6 @@ let originalSource = null;
 
 const reader = new FileReader();
 
-const publicationTitle = "";
-
 function getIsCaptureSupported() {
   const isCaptureSupported = inputImage.capture !== undefined;
   return isCaptureSupported;
