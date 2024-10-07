@@ -1,3 +1,6 @@
+const API_URL_ENDPOINT =
+  "https://67034ce9bd7c8c1ccd40fc40.mockapi.io/api/v1/publicacion";
+
 const previewImageContainer = document.getElementById("preview-container");
 const cameraContainer = document.getElementById("camera-container");
 const btnOpenCamera = document.getElementById("btn-open-camera");
@@ -10,7 +13,6 @@ const reader = new FileReader();
 
 function getIsCaptureSupported() {
   const isCaptureSupported = inputImage.capture !== undefined;
-  console.log("isCaptureSupported", isCaptureSupported);
   return isCaptureSupported;
 }
 
@@ -47,9 +49,24 @@ function handleOnChangeInputImage(event) {
 }
 
 function handleOnClickPublish() {
-  const base64Image = getBase64Image();
-  console.log("base64Image", base64Image);
-  // Send base64Image to server
+  try {
+    const base64Image = getBase64Image();
+    fetch(API_URL_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        titulo: "Título de la imagen",
+        imagen: base64Image,
+        fecha: new Date().toLocaleString(),
+      }),
+    });
+    alert("Imagen publicada con éxito");
+    window.location.href = "index.html";
+  } catch (error) {
+    alert("Error al publicar la imagen");
+  }
 }
 
 function handleOnClickRetake() {
