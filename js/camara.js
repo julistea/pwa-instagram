@@ -7,9 +7,12 @@ const btnOpenCamera = document.getElementById("btn-open-camera");
 const btnUploadFile = document.getElementById("btn-upload-file");
 const previewImg = document.getElementById("preview-image");
 const inputImage = document.getElementById("input-image");
+const inputTitle = document.getElementById("input-title");
 let originalSource = null;
 
 const reader = new FileReader();
+
+const publicationTitle = "";
 
 function getIsCaptureSupported() {
   const isCaptureSupported = inputImage.capture !== undefined;
@@ -50,6 +53,11 @@ function handleOnChangeInputImage(event) {
 
 function handleOnClickPublish() {
   try {
+    const title = inputTitle.value;
+    if (!title) {
+      alert("Por favor, ingrese un título");
+      return;
+    }
     const base64Image = getBase64Image();
     fetch(API_URL_ENDPOINT, {
       method: "POST",
@@ -57,15 +65,25 @@ function handleOnClickPublish() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        titulo: "Título de la imagen",
+        titulo: title,
         imagen: base64Image,
         fecha: new Date().toLocaleString(),
       }),
-    });
-    alert("Imagen publicada con éxito");
-    window.location.href = "index.html";
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.hasOwnProperty("id")) {
+          alert("Imagen publicada con éxito");
+          window.location.href = "index.html";
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(() => {
+        alert("Ocurrió un error al publicar la imagen");
+      });
   } catch (error) {
-    alert("Error al publicar la imagen");
+    alert("Ocurrió un error al publicar la imagen");
   }
 }
 

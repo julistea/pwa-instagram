@@ -21,8 +21,8 @@
     <style></style>
   </head>
   <body class="work-sans-general-font">
-    <section class="container flex flex-col mx-auto p-8 items-center">
-      <header class="mb-8">
+    <section class="container flex flex-col mx-auto px-8 pb-8 items-center">
+      <header class="mb-4 md:mb-8">
         <h1 class="hidden">Pic'nShare</h1>
         <figure>
           <picture>
@@ -30,7 +30,7 @@
             <img
               src="./images/logos/logo-main.png"
               alt="Pic'nShare logo"
-              class="mx-auto w-32 md:w-48"
+              class="mx-auto w-24 md:w-48"
             />
           </picture>
         </figure>
@@ -101,6 +101,18 @@
             class="image-preview w-72 h-[384px] md:w-96 md:h-[512px] mx-4 mb-4"
             alt="your photo"
           />
+
+          <div
+            class="mx-4 mb-4 px-4 py-2 flex items-center bg-slate-200 border border-slate-300"
+          >
+            <label class="mr-2" for="input-title">Título</label>
+            <input
+              type="text"
+              name="input-title"
+              id="input-title"
+              class="focus:outline-none w-full h-full p-1 text-slate-500 font-light"
+            />
+          </div>
 
           <div class="flex justify-between px-4">
             <button
