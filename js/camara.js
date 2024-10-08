@@ -64,6 +64,12 @@ function handleOnClickPublish() {
       alert("Por favor, ingrese un título");
       return;
     }
+
+    if (!navigator.onLine) {
+      alert("No hay conexión a internet, inténtalo más tarde");
+      return;
+    }
+
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -94,23 +100,10 @@ function handleOnClickRetake() {
   cameraContainer.classList.remove("hidden");
 }
 
-async function checkInternetConnection() {
-  try {
-    // Ping a reliable resource to check if there's internet connection
-    const response = await fetch("https://www.google.com/favicon.ico", {
-      method: "HEAD",
-      mode: "no-cors",
-    });
-    return response.ok || response.type === "opaque";
-  } catch (error) {
-    return false; // If there's an error, assume there's no connection
-  }
-}
-
 function updatePublishButtonState() {
   const publishBtn = document.getElementById("btn-publish");
 
-  if (navigator.onLine && checkInternetConnection()) {
+  if (navigator.onLine) {
     publishBtn.disabled = false;
     publishBtn.textContent = "Publicar";
   } else {
