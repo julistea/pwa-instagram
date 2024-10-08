@@ -94,10 +94,23 @@ function handleOnClickRetake() {
   cameraContainer.classList.remove("hidden");
 }
 
+async function checkInternetConnection() {
+  try {
+    // Ping a reliable resource to check if there's internet connection
+    const response = await fetch("https://www.google.com/favicon.ico", {
+      method: "HEAD",
+      mode: "no-cors",
+    });
+    return response.ok || response.type === "opaque";
+  } catch (error) {
+    return false; // If there's an error, assume there's no connection
+  }
+}
+
 function updatePublishButtonState() {
   const publishBtn = document.getElementById("btn-publish");
 
-  if (navigator.onLine) {
+  if (navigator.onLine && checkInternetConnection()) {
     publishBtn.disabled = false;
     publishBtn.textContent = "Publicar";
   } else {
