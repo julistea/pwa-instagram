@@ -15,7 +15,7 @@ const publicationComponent = ({ id, titulo, imagen, fecha }) => `<article
                 <img
                   src="${imagen}"
                   alt="Publicación: ${titulo}"
-                  class="image-preview"
+                  class="image-preview w-72 h-[384px] md:w-96 md:h-[512px]"
                 />
               </picture>
             </figure>
