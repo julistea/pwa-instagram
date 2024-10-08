@@ -29,6 +29,9 @@ function handleOnChangeInputImage(event) {
 }
 
 function postImage({ titulo, imagen }) {
+  const url = new URL(API_URL_ENDPOINT);
+  url.searchParams.append("sortBy", "fecha");
+  url.searchParams.append("order", "desc");
   fetch(API_URL_ENDPOINT, {
     method: "POST",
     headers: {

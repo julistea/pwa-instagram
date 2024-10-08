@@ -1,12 +1,33 @@
 {
   "short_name": "Picnshare",
-  "name": "Pic'nShare",
+  "name": "Pic'n Share",
   "description": "Platform for take and share photos",
-  "icons": [],
+  "icons": [
+    {
+      "src": "images/picnshare-icon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "images/picnshare-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/picnshare-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/picnshare-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "start_url": "/",
   "orientation": "portrait",
-  "background_color": "#fff",
+  "background_color": "#f8fafc",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#cddc39"
+  "theme_color": "#64748b"
 }
