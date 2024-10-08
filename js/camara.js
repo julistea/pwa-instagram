@@ -28,9 +28,21 @@ function getBase64Image() {
   publishImg.src = previewImg.src;
 
   canvas.width = expectedWidth;
-  canvas.height = expectedHeight;
+  canvas.height = 600;
 
-  ctx.drawImage(previewImg, 0, 0, expectedWidth, expectedHeight);
+  const yOffset = (expectedHeight - 600) / 2;
+
+  ctx.drawImage(
+    previewImg,
+    0,
+    yOffset,
+    expectedWidth,
+    600,
+    0,
+    0,
+    expectedWidth,
+    600
+  );
 
   return canvas.toDataURL("image/webp");
 }
