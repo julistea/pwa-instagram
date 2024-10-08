@@ -5,7 +5,7 @@ const defaultCard = document.getElementById("reel-item-default");
 
 const publicationComponent = ({ id, titulo, imagen, fecha }) => `<article
             id="reel-item-${id}-${fecha.slice(0, -4)}"
-            class="w-72 md:w-96 p-4 border border-slate-300 shadow-md"
+            class="box-content w-72 md:w-96 p-4 border border-slate-300 shadow-md"
           >
             <figure class="mb-2">
               <figcaption class="mb-2 text-slate-700">
