@@ -94,6 +94,18 @@ function handleOnClickRetake() {
   cameraContainer.classList.remove("hidden");
 }
 
+function updatePublishButtonState() {
+  const publishBtn = document.getElementById("btn-publish");
+
+  if (navigator.onLine) {
+    publishBtn.disabled = false;
+    publishBtn.textContent = "Publicar";
+  } else {
+    publishBtn.disabled = true;
+    publishBtn.textContent = "Sin conexión";
+  }
+}
+
 function init() {
   const isCaptureSupported = getIsCaptureSupported();
 
@@ -115,6 +127,11 @@ function init() {
   } else {
     const desktopDiv = document.getElementById("user-action-desktop");
     desktopDiv.classList.remove("hidden");
+
+    updatePublishButtonState();
+
+    window.addEventListener("online", updatePublishButtonState);
+    window.addEventListener("offline", updatePublishButtonState);
 
     btnUploadFile.addEventListener("click", () => {
       inputImage.click();
