@@ -21,17 +21,16 @@ function getBase64Image() {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
-  const publishImg = document.createElement("img");
-  publishImg.src = originalSource;
-  const fullWidth = publishImg.width;
-  const fullHeight = publishImg.height;
+  const expectedWidth = 450;
+  const expectedHeight =
+    (450 * previewImg.naturalHeight) / previewImg.naturalWidth;
+  const publishImg = new Image(expectedWidth, expectedHeight);
+  publishImg.src = previewImg.src;
 
-  publishImg.width = 600;
-  publishImg.height = (600 * fullHeight) / fullWidth;
-  canvas.width = publishImg.width;
-  canvas.height = publishImg.height;
+  canvas.width = expectedWidth;
+  canvas.height = expectedHeight;
 
-  ctx.drawImage(publishImg, 0, 0);
+  ctx.drawImage(previewImg, 0, 0, expectedWidth, expectedHeight);
 
   return canvas.toDataURL("image/webp");
 }
@@ -81,6 +80,7 @@ function handleOnClickPublish() {
         alert("Ocurrió un error al publicar la imagen");
       });
   } catch (error) {
+    console.error(error);
     alert("Ocurrió un error al publicar la imagen");
   }
 }
